@@ -1,0 +1,27 @@
+{
+  "name": "acttt",
+  "version": "1.0.0",
+  "description": "Alchemy Cloud Technical Task Translate Project for the Role of Application Developer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"ERROR: no teste specified\" && exit 1",
+	"dev":"nodemon src/server.js"
+  },
+  "keywords": [
+    "technical",
+    "task",
+    "alchemy",
+    "translate",
+    "google",
+    "api"
+  ],
+  "author": "Pedro M. Duarte",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/translate": "^7.2.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
