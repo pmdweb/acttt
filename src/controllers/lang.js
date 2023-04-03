@@ -1,23 +1,15 @@
-const express = require('express')
-const routes = require('./routes')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-require('dotenv').config()
-
-const app = express()
-
-app.use(express.json())
 
 const { Translate } = require('@google-cloud/translate').v2;
 const auth = JSON.parse(process.env.GT_API_SERVICE_ACC)
 
 const translate = new Translate({
 	credentials: auth,
-	projectId:auth.projectId
+	projectId: auth.projectId
 });
 
+
 const text = 'Alchemy Cloud Technical Task';
-const target = 'pt-br';
+const target = 'pt-br'//JSON.parse(process.env.GT_API_SERVICE_ACC) ;
 
 async function locateLanguage(toTranslate) {
 	try {
@@ -45,15 +37,3 @@ async function translation() {
 }
 
 translation();
-
-app.use((req, res, next) => {
-    console.log('Received request: ', req.method, req.url)
-    res.header('Access-Control-Allow-Origin', '*')
-    next()
-})
-app.use(cors({
-    origin: '*'
-}))
-
-app.use(routes)
-app.listen(666)
