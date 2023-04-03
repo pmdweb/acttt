@@ -11,6 +11,7 @@ routes.get('/', (req, res) => {
 routes.get('/api',api.index)
 routes.get('/languages',languages.index)
 routes.get('/languages/:id',languages.indexTarget)
-routes.get('/locate/',languages.index)
+routes.post('/locate/',languages.detectLanguage)
+routes.post('/translate/',languages.translateText)
 
 module.exports = routes
